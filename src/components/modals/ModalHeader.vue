@@ -3,11 +3,13 @@
     <div>
       <h1>{{ title }}</h1>
     </div>
-    <Button color="transparent">x</Button>
+    <Button color="primary" @click="clearSelectedTask">x</Button>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   props: {
     title: {
@@ -18,6 +20,9 @@ export default {
       type: String,
       default: '',
     },
+  },
+  methods: {
+    ...mapActions('task-list', ['clearSelectedTask']),
   },
 }
 </script>

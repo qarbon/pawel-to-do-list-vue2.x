@@ -2,7 +2,7 @@
 @import "variables.css";
 @import "fonts.css";
 @import "components/index.css";
-@import "task-list.css";
+@import "views/index.css";
 
 * {
     scrollbar-width: auto;
@@ -21,6 +21,11 @@
     background-color: var(--scrollbar);
     border-radius: 8px;
     border: 0 none var(--white);
+}
+
+::selection {
+    background-color: var(--light-orange);
+    color: var(--white);
 }
 
 #app {
@@ -44,7 +49,7 @@
     margin-inline: 20px;
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 48px auto;
 }
 
 .layout-body {

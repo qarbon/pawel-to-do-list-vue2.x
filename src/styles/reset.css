@@ -28,7 +28,6 @@ button, a {
     cursor: pointer;
 }
 
-::selection {
-    background-color: var(--light-orange);
-    color: var(--white);
+ol, ul {
+    list-style: none;
 }

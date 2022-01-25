@@ -7,15 +7,9 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { modal_mode } from '@/enums/modal'
 
 export default {
   name: 'Header',
-  data() {
-    return {
-      modal_mode,
-    }
-  },
   methods: {
     ...mapActions('task-list', ['setSelectedTask']),
     handleOpenModal() {

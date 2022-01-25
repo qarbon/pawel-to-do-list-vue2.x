@@ -1,9 +1,13 @@
 export default {
   namespaced: true,
   state: {
+    // selected_task: {
+    //   is_edit: false,
+    //   task: null,
+    // },
     selected_task: {
-      is_edit: false,
-      task: null,
+      is_edit: true,
+      task: {},
     },
   },
   actions: {

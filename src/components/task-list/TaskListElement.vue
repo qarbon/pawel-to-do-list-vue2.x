@@ -2,14 +2,13 @@
   <div class="task-list-element">
     <Checkbox v-model="is_checked"/>
     <p class="task-list-element-title">{{ task.title }}</p>
-    <p>{{ task.todo_date }}</p>
+    <p>{{ task.due_date }}</p>
     <Button color="primary" class="square-button" @click="handleOpenModal">p</Button>
     <Button color="primary" class="square-button" @click="() => handleOpenModal(true)">e</Button>
   </div>
 </template>
 
 <script>
-import { modal_mode } from '@/enums/modal'
 import { mapActions } from 'vuex'
 
 export default {
@@ -22,7 +21,6 @@ export default {
   data() {
     return {
       is_checked: false,
-      modal_mode,
     }
   },
   methods: {

@@ -1,0 +1,7 @@
+.task-form {
+    display: flex;
+    flex-flow: column;
+}
+.task-form__submit-button {
+    align-self: flex-end;
+}

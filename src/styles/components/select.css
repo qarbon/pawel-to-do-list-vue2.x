@@ -1,0 +1,44 @@
+.v-select {
+    padding-inline: 0;
+}
+
+.vs__search {
+    cursor: pointer;
+}
+
+.vs__dropdown-toggle {
+    display: flex;
+    justify-content: center;
+    padding-inline: 10px;
+}
+
+.vs__selected-options{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.vs__actions {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vs3__listbox {
+    padding-top: 10px;
+}
+
+.vs__dropdown-menu {
+    padding-top: 5px;
+}
+
+.vs__dropdown-menu li {
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.vs__dropdown-menu li:hover {
+    background-color: var(--light-orange);
+    color: var(--white);
+}
