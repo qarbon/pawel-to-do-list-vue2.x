@@ -1,0 +1,52 @@
+@import "reset.css";
+@import "variables.css";
+@import "fonts.css";
+@import "components/index.css";
+@import "task-list.css";
+
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--scrollbar) var(--grey);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--grey);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 8px;
+    border: 0 none var(--white);
+}
+
+#app {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--main-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.layout {
+    background-color: var(--white);
+    max-width: 1024px;
+    max-height: 80%;
+    height: 864px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--grey);
+    margin-inline: 20px;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.layout-body {
+    overflow: hidden;
+}

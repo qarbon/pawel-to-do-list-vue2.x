@@ -1,0 +1,23 @@
+.empty-task-list {
+    margin-top: 15px;
+}
+
+.task-list {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.task-list-element {
+    width: 100%;
+    border-bottom: 1px solid var(--grey);
+    padding-block: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-list-element-title {
+    flex: 1;
+}
