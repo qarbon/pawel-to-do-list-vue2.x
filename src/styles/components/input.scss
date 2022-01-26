@@ -1,19 +1,16 @@
-.input-wrapper {
-  height: 70px;
-}
-
 .text-input__input {
-  margin-top: 5px;
   border: 1px solid var(--grey);
   padding: 4px 10px;
   width: 100%;
 }
 
 .text-input__error {
-  padding-top: 3px;
   padding-left: 1px;
   color: var(--error);
   font-size: 0.75em;
+  height: 14px;
+  margin-top: 3px;
+  margin-bottom: 6px;
 }
 
 .date-input__container {

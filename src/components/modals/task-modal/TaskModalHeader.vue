@@ -1,7 +1,8 @@
 <template>
-  <div class="modal-header">
-    <div>
+  <div class="modal__header">
+    <div class="flex-gap">
       <h1>{{ title }}</h1>
+      <Button color="transparent" @click="() => setIsEdit(true)" v-if="is_edit">Edit task</Button>
     </div>
     <Button color="primary" @click="clearSelectedTask">x</Button>
   </div>
@@ -11,6 +12,7 @@
 import { mapActions } from 'vuex'
 
 export default {
+  name: 'TaskModalHeader',
   props: {
     title: {
       type: String,
@@ -22,7 +24,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('task-list', ['clearSelectedTask']),
+    ...mapActions('task-list', ['clearSelectedTask', 'setIsEdit']),
   },
 }
 </script>

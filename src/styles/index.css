@@ -55,3 +55,16 @@
 .layout-body {
     overflow: hidden;
 }
+
+.flex-gap {
+    display: flex;
+    gap: 10px
+}
+
+@media (max-width: 576px) {
+    .layout {
+        margin-inline: 0;
+        max-height: unset;
+        height: 100%;
+    }
+}

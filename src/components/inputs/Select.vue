@@ -1,5 +1,5 @@
 <template>
-  <div class="input-wrapper">
+  <div class="select-wrapper">
     <label class="text-input__label">
       {{ label }}
     </label>

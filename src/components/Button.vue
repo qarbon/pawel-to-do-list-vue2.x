@@ -10,11 +10,15 @@ export default {
   props: {
     color: {
       type: String,
-    }
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     get_classes() {
-      return { [`${this.color}-button`]: this.color }
+      return { [`button--${this.color}`]: this.color, 'button--disabled': this.disabled }
     },
   },
   methods: {

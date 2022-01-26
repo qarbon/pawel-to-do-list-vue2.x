@@ -6,15 +6,15 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Header',
   methods: {
     ...mapActions('task-list', ['setSelectedTask']),
     handleOpenModal() {
-      this.setSelectedTask({ task: {}, is_edit: true})
-    }
+      this.setSelectedTask({ task: {}, is_edit: true })
+    },
   },
 }
 </script>

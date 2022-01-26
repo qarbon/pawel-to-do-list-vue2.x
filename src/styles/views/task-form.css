@@ -1,7 +1,31 @@
+.task-form, .task-preview__content, .comment-list__wrapper, .comment-list__footer {
+    padding-inline: 20px;
+}
+
 .task-form {
     display: flex;
     flex-flow: column;
 }
+
 .task-form__submit-button {
     align-self: flex-end;
+    margin-bottom: 20px;
+}
+
+.task-preview {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.task-preview__description {
+    width: 100%;
+    word-break: break-word;
+}
+
+.task-preview__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 15px;
+    border-bottom: 1px solid var(--grey);
 }

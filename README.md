@@ -1,4 +1,15 @@
-# pawel-to-do-list-vue2
+# PawaTask - Pawel
+
+## Requirements
+
+- node v16.13.0
+
+---
+
+## Usage
+<p> To simulate having different users we can change user_name in fake_user.js file</p>
+
+---
 
 ## Project setup
 ```
@@ -20,5 +31,6 @@ yarn build
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+---
+
+

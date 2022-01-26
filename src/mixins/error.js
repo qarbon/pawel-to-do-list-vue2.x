@@ -1,5 +1,6 @@
 import forms from '@/validators/forms'
 import validators from '@/validators'
+import { isEqual } from 'lodash';
 
 const errorMixin = (form_name) => {
   if (!forms[form_name]) return {};
@@ -10,6 +11,18 @@ const errorMixin = (form_name) => {
       return {
         error: Object.fromEntries(Object.keys(selected_form).map(key => [key, null])),
       }
+    },
+    watch: {
+      body: {
+        deep: true,
+        handler() {
+          Object.keys(this.error).forEach((key) => {
+            if (!isEqual(this.body[key], this.body_copy[key])) {
+              this.validateOne(key);
+            }
+          });
+        },
+      },
     },
     computed: {
       form_has_error() {
@@ -29,7 +42,7 @@ const errorMixin = (form_name) => {
         this.$set(this.error, field, error_message)
       },
       validateAll() {
-        Object.keys(selected_form).forEach(field => this.validateOne(field))
+        Object.keys(this.error).forEach(field => this.validateOne(field))
       }
     },
   }

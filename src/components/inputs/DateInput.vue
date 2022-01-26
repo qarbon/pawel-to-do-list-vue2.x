@@ -1,5 +1,5 @@
 <template>
-  <div class="input-wrapper">
+  <div>
     <label class="text-input__label">
       {{ label }}
     </label>
@@ -51,6 +51,16 @@ export default {
         if (value === this.value) return
         this.$emit('input', `${value.day}/${value.month}/${value.year}`)
       },
+    },
+    value(value) {
+      const join_date = `${this.body.day}/${this.body.month}/${this.body.year}`
+      if (value === join_date || !value) {
+        return
+      }
+      const [day, month, year] = this.value.split(/\//g)
+      this.$set(this.body, 'day', day)
+      this.$set(this.body, 'month', month)
+      this.$set(this.body, 'year', year)
     },
   },
   computed: {

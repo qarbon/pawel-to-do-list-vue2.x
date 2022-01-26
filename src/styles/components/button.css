@@ -11,21 +11,26 @@
     filter: brightness(0.85);
 }
 
-.primary-button {
+.button--primary {
     background-color: var(--orange);
     padding: 7px 10px;
     color: var(--white);
     font-weight: 600;
 }
 
-.square-button {
+.button--square {
     padding: 0;
     width: 20px;
     height: 20px;
 }
 
-.transparent-button {
+.button--transparent {
     color: var(--orange);
     text-decoration: underline;
     cursor: pointer;
+}
+
+.button--disabled {
+    background: var(--dark-grey);
+    cursor: not-allowed;
 }

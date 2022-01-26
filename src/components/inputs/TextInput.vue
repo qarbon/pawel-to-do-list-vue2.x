@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrapper">
-    <label class="text-input__label">
+    <label class="text-input__label" v-if="label">
       {{ label }}
     </label>
     <div class="text-input__container">
@@ -14,7 +14,7 @@
           :class="{ error }"
       />
     </div>
-    <div class="text-input__error">
+    <div class="text-input__error" v-if="!hide_error">
       {{ error }}
     </div>
   </div>
@@ -29,6 +29,10 @@ export default {
     type: {
       type: String,
       default: 'text',
+    },
+    hide_error: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {

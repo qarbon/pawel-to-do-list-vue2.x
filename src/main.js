@@ -1,10 +1,13 @@
-import callApi from '@/api'
 import GlobalComponents from '@/globalComponents'
 
 import { VueMaskDirective } from 'v-mask'
 import Vue from 'vue'
 import vSelect from 'vue-select'
+import dayjs from 'dayjs'
 
+var isToday = require('dayjs/plugin/isToday')
+
+dayjs.extend(isToday)
 
 import App from './App.vue'
 
@@ -13,8 +16,6 @@ import store from './store'
 
 
 Vue.config.productionTip = false
-
-Vue.prototype.$callApi = callApi
 
 Vue.use(GlobalComponents)
 

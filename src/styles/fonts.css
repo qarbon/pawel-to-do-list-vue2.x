@@ -1,3 +1,7 @@
 h1 {
     font-size: 2em;
 }
+
+.strong-text {
+    font-weight: 700;
+}

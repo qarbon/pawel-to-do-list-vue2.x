@@ -7,7 +7,7 @@
 
 <script>
 import '@/styles/index.css';
-import ModalWrapper from '@/components/modals/ModalWrapper'
+import ModalWrapper from '@/components/modals/task-modal/TaskModalWrapper'
 import Layout from '@/layouts/Layout'
 
 export default {

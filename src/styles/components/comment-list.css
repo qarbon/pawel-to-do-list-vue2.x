@@ -1,0 +1,43 @@
+.comment-list {
+    display: grid;
+    grid-template-rows: 1fr 60px;
+    padding-top: 15px;
+}
+
+.comment-list__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    background-color: var(--main-background);
+    border-top: 1px solid var(--grey);
+}
+
+.comment-list__footer .input-wrapper{
+    flex: 1;
+}
+
+.comment-list__wrapper {
+    max-height: 400px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.comment {
+    padding-block: 10px;
+}
+
+.comment__author-name {
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+.comment__created-at {
+    color: var(--light-grey)
+}
+
+.comment__message {
+    padding-top: 5px;
+    word-break: break-word;
+}
