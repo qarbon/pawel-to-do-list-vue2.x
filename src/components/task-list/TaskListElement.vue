@@ -1,5 +1,5 @@
 <template>
-  <div class="task-list-element">
+  <div class="task-list-element" :class="{ 'task-list-element--done': task.status === task_status.done }">
     <div class="task-list-element__checkbox">
       <Checkbox :value="is_checked" @input="handleCheck"/>
     </div>
@@ -14,6 +14,7 @@
     <Button color="icon" @click="() => handleOpenModal(true)">
       <InlineSvg :src="pencilIcon"/>
     </Button>
+    <ChangeStatusButton :task="task"/>
   </div>
 </template>
 
@@ -21,9 +22,12 @@
 import calendarIcon from '@/assets/icons/calendar.svg'
 import chatIcon from '@/assets/icons/chat.svg'
 import pencilIcon from '@/assets/icons/pencil.svg'
+import ChangeStatusButton from '@/components/ChangeStatusButton'
 import { mapActions } from 'vuex'
+import { task_status } from '@/enums/task'
 
 export default {
+  components: { ChangeStatusButton },
   props: {
     task: {
       type: Object,
@@ -36,6 +40,7 @@ export default {
       chatIcon,
       pencilIcon,
       calendarIcon,
+      task_status,
     }
   },
   methods: {

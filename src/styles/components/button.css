@@ -64,6 +64,14 @@
     fill: var(--orange);
 }
 
+.button--red {
+    background-color: var(--error);
+}
+
+.button--green{
+    background-color: var(--green);
+}
+
 .button--disabled {
     background: var(--dark-grey);
     cursor: not-allowed;

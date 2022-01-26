@@ -43,6 +43,7 @@ import endpoints from '@/api/endpoints'
 import fake_user from '@/api/fake_user'
 import Textarea from '@/components/inputs/Textarea'
 import { priority_enum, priority_names } from '@/enums/priority'
+import { task_status } from '@/enums/task'
 import errorMixin from '@/mixins/error'
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
@@ -117,7 +118,7 @@ export default {
 
       const response = this.is_edit
           ? await callApiPut(endpoints.TASK, body.id, body)
-          : await callApiPost(endpoints.TASK, body)
+          : await callApiPost(endpoints.TASK, { ...body, status: task_status.todo })
 
       if (response.id) {
         await this.addComment({ message, task_id: response.id })

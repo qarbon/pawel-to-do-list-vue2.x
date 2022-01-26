@@ -19,12 +19,16 @@
     gap: 10px;
 }
 
+.task-list-element--done {
+    background-color: var(--light-grey);
+}
+
 .task-list-element__title {
     flex: 1;
 }
 
 .task-list-element__header-actions {
-    width: 70px;
+    width: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
