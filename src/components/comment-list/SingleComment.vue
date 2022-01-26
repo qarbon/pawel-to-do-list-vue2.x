@@ -3,7 +3,7 @@
     <p><span class="comment__author-name">{{ comment.author_name }}</span><span
         class="comment__created-at"
     >{{ get_created_at }}</span></p>
-    <p class="comment__message">{{ comment.message }}</p>
+    <pre class="comment__message">{{ comment.message }}</pre>
   </div>
 </template>
 

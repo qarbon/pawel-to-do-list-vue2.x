@@ -4,16 +4,15 @@
       {{ label }}
     </label>
     <div class="text-input__container">
-      <input
+      <textarea
           :placeholder="placeholder"
-          :type="type"
           :value="value"
           @input="handleInput"
           @change="handleChange"
-          class="text-input__input"
+          class="text-input__input text-input__textarea"
           :class="{ error }"
           :maxlength="maxlength"
-          :minlength="minlength"
+          :rows="rows"
       />
     </div>
     <div class="text-input__error" v-if="!hide_error">
@@ -25,7 +24,7 @@
 import inputProps from '@/components/inputs/inputProps'
 
 export default {
-  name: 'TextInput',
+  name: 'Textarea',
   props: {
     ...inputProps,
     type: {
@@ -36,6 +35,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    rows: {
+      type: Number,
+      default: 4,
+    }
   },
   methods: {
     handleInput(e) {

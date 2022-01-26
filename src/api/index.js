@@ -28,3 +28,12 @@ export const callApiPut = async (action, selector, params) => {
     return { success: false, error: e.response.message };
   }
 };
+
+export const callApiDelete = async (action, selector) => {
+  try {
+    const res = await axios.delete(`${url}/${action}/${selector}`);
+    return res.data;
+  } catch (e) {
+    return { success: false, error: e.response.message };
+  }
+};

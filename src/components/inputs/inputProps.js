@@ -21,6 +21,14 @@ const inputProps = {
     type: [String, Number],
     default: null,
   },
+  maxlength: {
+    type: [String, Number],
+    default: null,
+  },
+  minlength: {
+    type: [String, Number],
+    default: null,
+  },
 };
 
 export default inputProps;

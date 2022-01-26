@@ -18,6 +18,7 @@ export default {
     task_id: {
       type: String,
       default: null,
+      required: true,
     },
   },
   computed: {

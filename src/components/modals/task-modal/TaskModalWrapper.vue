@@ -1,6 +1,6 @@
 <template>
   <ModalWrapper :modal_visible="!!(selected_task && selected_task.task)" @close="clearSelectedTask">
-    <ModalHeader :title="get_title"/>
+    <ModalHeader :title="get_title" :is_edit="is_edit"/>
     <TaskFormModal :selected_task="selected_task.task" v-if="selected_task.task && is_edit"/>
     <TaskPreviewModal :selected_task="selected_task.task" v-else-if="selected_task.task"/>
   </ModalWrapper>

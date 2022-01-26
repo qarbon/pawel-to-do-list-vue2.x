@@ -30,6 +30,40 @@
     cursor: pointer;
 }
 
+.button--icon, .button--icon-transparent {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button--icon svg, .button--icon-transparent svg {
+    width: 14px;
+    height: 14px;
+}
+
+.button--icon {
+    background-color: var(--orange);
+}
+
+.button--icon svg {
+    fill: var(--white)
+}
+
+.button--icon-transparent {
+    background-color: transparent;
+}
+
+.button--icon-transparent svg {
+    fill: var(--black);
+    transition: fill .15s ease-in-out;
+}
+
+.button--icon-transparent:hover svg {
+    fill: var(--orange);
+}
+
 .button--disabled {
     background: var(--dark-grey);
     cursor: not-allowed;

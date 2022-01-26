@@ -1,7 +1,19 @@
 <template>
   <div class="comment-list__footer">
-    <TextInput v-model="message" placeholder="Write a comment..." hide_error/>
-    <Button color="primary" @click="sendMessage" :disabled="!(message && task_id)">{{ is_sending ? 'Sending...' : 'Add Comment' }}</Button>
+    <Textarea
+        v-model="message"
+        placeholder="Write a comment..."
+        hide_error
+        maxlength="255"
+        :rows="1"
+    />
+    <Button
+        color="primary"
+        @click="sendMessage"
+        :disabled="!(message && task_id)"
+    >
+      {{ is_sending ? 'Sending...' : 'Add Comment' }}
+    </Button>
   </div>
 </template>
 
@@ -9,10 +21,12 @@
 import { callApiPost } from '@/api'
 import endpoints from '@/api/endpoints'
 import fake_user from '@/api/fake_user'
+import Textarea from '@/components/inputs/Textarea'
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 
 export default {
+  components: { Textarea },
   props: {
     task_id: {
       type: String,

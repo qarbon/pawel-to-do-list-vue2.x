@@ -4,6 +4,7 @@ import { VueMaskDirective } from 'v-mask'
 import Vue from 'vue'
 import vSelect from 'vue-select'
 import dayjs from 'dayjs'
+import InlineSvg from 'vue-inline-svg';
 
 var isToday = require('dayjs/plugin/isToday')
 
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 Vue.use(GlobalComponents)
 
 Vue.component('v-select', vSelect)
+Vue.component('InlineSvg', InlineSvg);
 
 Vue.directive('mask', VueMaskDirective)
 

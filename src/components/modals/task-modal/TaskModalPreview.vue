@@ -1,7 +1,7 @@
 <template>
   <div class="task-preview">
     <div class="task-preview__content">
-      <p class="task-preview__description">{{ selected_task.description }}</p>
+      <pre class="task-preview__description">{{ selected_task.description }}</pre>
       <div class="task-preview__info">
         <p><span class="strong-text">Date: </span>{{ selected_task.due_date }}</p>
         <p><span class="strong-text">Priority: </span>{{ get_priority }}</p>

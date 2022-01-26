@@ -28,6 +28,10 @@ button, a {
     cursor: pointer;
 }
 
+textarea {
+    resize: none;
+}
+
 ol, ul {
     list-style: none;
 }

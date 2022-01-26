@@ -2,7 +2,8 @@
   <div class="task-list">
     <Loader v-if="loading"/>
     <template v-else-if="list_has_values">
-      <TaskListElement v-for="task in task_list" :key="task.id" :task="task"/>
+      <TaskListHeader :selected_ids="selected_ids" @taskRemoved="clearSelectedIds"/>
+      <TaskListElement v-for="task in task_list" :key="task.id" :task="task" @check="handleTaskCheck"/>
     </template>
     <EmptyTaskList v-else/>
   </div>
@@ -12,13 +13,15 @@
 import Loader from '@/components/Loader'
 import EmptyTaskList from '@/components/task-list/EmptyTaskList'
 import TaskListElement from '@/components/task-list/TaskListElement'
+import TaskListHeader from '@/components/task-list/TaskListHeader'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  components: { Loader, EmptyTaskList, TaskListElement },
+  components: { TaskListHeader, Loader, EmptyTaskList, TaskListElement },
   data() {
     return {
       loading: true,
+      selected_ids: [],
     };
   },
   computed: {
@@ -32,6 +35,16 @@ export default {
     async fetchTaskList() {
       await this.getTaskList()
       this.loading = false
+    },
+    handleTaskCheck(task_id) {
+      if (!this.selected_ids.includes(task_id)) {
+        this.selected_ids.push(task_id)
+        return
+      }
+      this.selected_ids = this.selected_ids.filter(id => id !== task_id)
+    },
+    clearSelectedIds() {
+      this.selected_ids = []
     },
   },
   beforeDestroy() {

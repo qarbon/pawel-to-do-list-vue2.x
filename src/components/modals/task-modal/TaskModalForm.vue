@@ -4,11 +4,13 @@
         label="Title:"
         v-model.trim="body.title"
         :error="error.title"
+        maxlength="100"
     />
-    <TextInput
+    <Textarea
         label="Description:"
         v-model.trim="body.description"
         :error="error.description"
+        maxlength="255"
     />
     <DateInput
         class="partial-width-input"
@@ -23,10 +25,11 @@
         :options="get_priority_options"
         class="partial-width-input"
     />
-    <TextInput
+    <Textarea
         label="Comment:"
-        v-model.trim="body.comment"
-        :error="error.comment"
+        v-model.trim="body.message"
+        :error="error.message"
+        maxlength="255"
     />
     <Button color="primary" class="task-form__submit-button" :disabled="is_button_disabled">
       {{ button_label }}
@@ -37,8 +40,11 @@
 <script>
 import { callApiPost, callApiPut } from '@/api'
 import endpoints from '@/api/endpoints'
+import fake_user from '@/api/fake_user'
+import Textarea from '@/components/inputs/Textarea'
 import { priority_enum, priority_names } from '@/enums/priority'
 import errorMixin from '@/mixins/error'
+import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 
 const body_factory = () => ({
@@ -46,11 +52,12 @@ const body_factory = () => ({
   description: null,
   due_date: null,
   priority: 1,
-  comment: null,
+  message: null,
 })
 
 export default {
   name: 'TaskModalForm',
+  components: { Textarea },
   props: {
     selected_task: {
       type: Object,
@@ -63,7 +70,7 @@ export default {
       button_disabled: false,
       body: body_factory(),
       body_copy: body_factory(),
-      comments: '',
+      message: '',
     }
   },
   computed: {
@@ -82,6 +89,17 @@ export default {
   },
   methods: {
     ...mapActions('task-list', ['clearSelectedTask', 'getTaskList']),
+    async addComment({ message, task_id }) {
+      if (!message) {
+        return
+      }
+      await callApiPost(endpoints.COMMENT, {
+        message,
+        created_at: dayjs().toISOString(),
+        author_name: fake_user.name,
+        task_id,
+      })
+    },
     async handleSubmit() {
       this.button_disabled = true
       if (this.form_has_error) {
@@ -93,11 +111,16 @@ export default {
         this.button_disabled = false
         return
       }
+
+      const message = this.body.message
+      const body = { ...this.body, message: undefined }
+
       const response = this.is_edit
-          ? await callApiPut(endpoints.TASK, this.body.id, { ...this.body, comment: undefined })
-          : await callApiPost(endpoints.TASK, { ...this.body, comment: undefined })
+          ? await callApiPut(endpoints.TASK, body.id, body)
+          : await callApiPost(endpoints.TASK, body)
 
       if (response.id) {
+        await this.addComment({ message, task_id: response.id })
         await this.getTaskList()
         this.clearSelectedTask()
       }
